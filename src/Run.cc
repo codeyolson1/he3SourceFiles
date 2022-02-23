@@ -24,9 +24,8 @@
 
 #include <atomic>
 
-Run::Run(G4bool He3)
+Run::Run()
 {
-  isHe3 = He3;
   EDepPerEvent = {};
 }
 
@@ -67,33 +66,20 @@ void Run::RecordEvent(const G4Event* anEvent)
 
   //G4cout << "Primary Energy is: " << energy/MeV << G4endl;
   G4HCofThisEvent* hce = anEvent->GetHCofThisEvent();
-  if (isHe3) {
-    G4int collID = sdMan->GetCollectionID("Helium-3/EnergyDep");
-    if (!hce) return;
-    G4THitsMap<G4double>* eventMap = 0;
-    eventMap = static_cast<G4THitsMap<G4double>*>(hce->GetHC(collID));
-    if (eventMap && eventMap->entries() >= 1) {
-      G4double val = 0.;
-      for (auto itr = eventMap->begin(); itr != eventMap->end(); itr++) {
-        val += *itr->second;
-      }
-      myAnalysis->FillEDep(val/MeV, 0);
-      EDepPerEvent.push_back(val/MeV);
+ 
+  G4int collID = sdMan->GetCollectionID("Helium-3/EnergyDep");
+  if (!hce) return;
+  G4THitsMap<G4double>* eventMap = 0;
+  eventMap = static_cast<G4THitsMap<G4double>*>(hce->GetHC(collID));
+  if (eventMap && eventMap->entries() >= 1) {
+    G4double val = 0.;
+    for (auto itr = eventMap->begin(); itr != eventMap->end(); itr++) {
+      val += *itr->second;
     }
-  } else {
-    G4int collID1 = sdMan->GetCollectionID("BF31/EnergyDep1");
-    if (!hce) return;
-    G4THitsMap<G4double>* eventMap1 = 0;
-    eventMap1 = static_cast<G4THitsMap<G4double>*>(hce->GetHC(collID1));
-    if (eventMap1 && eventMap1->entries() >= 1) {
-      G4double val1 = 0.;
-      for (auto itr = eventMap1->begin(); itr != eventMap1->end(); itr++) {
-        val1 += *itr->second;
-      }
-      //G4cout << "Detector 1: " << val1/MeV << G4endl;
-      myAnalysis->FillEDep(val1/MeV, 0);
-      EDepPerEvent.push_back(val1/MeV);
-    }
+    myAnalysis->FillEDep(val/MeV, 0);
+    EDepPerEvent.push_back(val/MeV);
+  
+
     G4int collID2 = sdMan->GetCollectionID("BF32/EnergyDep2");
     if (!hce) return;
     G4THitsMap<G4double>* eventMap2 = 0;

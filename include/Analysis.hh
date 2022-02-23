@@ -21,7 +21,7 @@ class Analysis {
 
     static Analysis* GetAnalysis();
 
-    void Book(G4bool);
+    void Book();
     void EndOfRun();
 
     void OpenFile(const G4String& fname);

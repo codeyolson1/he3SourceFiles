@@ -22,18 +22,15 @@
 #include "G4StatAnalysis.hh"
 #include "G4RunManager.hh"
 #include "G4ConvergenceTester.hh"
-#include "tools/mpi/wrmpi"
 #include <iostream>
 #include <fstream>
-RunAction::RunAction(G4bool He3) : G4UserRunAction()
+RunAction::RunAction() : G4UserRunAction()
 {
-  isHe3 = He3;
-G4String primEnergy = "grp28";
-  if (He3) {
-    outFileName = "EDep_He3_" + primEnergy;
-  } else {
-    outFileName = "EDep_BF3_" + primEnergy;
-  }
+
+  G4String primEnergy = "grp28";
+
+  outFileName = "EDep_He3_" + primEnergy;
+
   eDepTest = new G4ConvergenceTester("EnergyDeposition");
 }
 //
@@ -44,14 +41,14 @@ RunAction::~RunAction()
 //
 G4Run* RunAction::GenerateRun()
 {
-  return new Run(isHe3);
+  return new Run();
 }
 //
 //
 void RunAction::BeginOfRunAction(const G4Run*)
 {
   Analysis* myAnalysis = Analysis::GetAnalysis();
-  myAnalysis->Book(isHe3);
+  myAnalysis->Book();
   myAnalysis->OpenFile(outFileName);
   if (IsMaster()) {
     eDepTest = new G4ConvergenceTester("EnergyDeposition");

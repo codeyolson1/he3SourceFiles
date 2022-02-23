@@ -41,7 +41,7 @@ Analysis* Analysis::GetAnalysis()
 //
 //
 
-void Analysis::Book(G4bool isHe3)
+void Analysis::Book()
 {
   G4AnalysisManager* man = G4AnalysisManager::Instance();
   G4SDManager* sdMan = G4SDManager::GetSDMpointer();
@@ -51,15 +51,11 @@ void Analysis::Book(G4bool isHe3)
   #endif
   man->SetFirstNtupleId(0);
   man->SetFirstNtupleColumnId(0);
-  if (isHe3) {
-    man->CreateNtuple("Helium3", "Helium3");
-    man->CreateNtupleDColumn("EDep");
-    man->FinishNtuple();
-  } else {
-    man->CreateNtuple("Boron Trifluoride", "Boron Trifluoride");
-    man->CreateNtupleDColumn("EDep");
-    man->FinishNtuple();
-  }
+
+  man->CreateNtuple("Helium3", "Helium3");
+  man->CreateNtupleDColumn("EDep");
+  man->FinishNtuple();
+
   man->CreateNtuple("Primary", "Primary");
   man->CreateNtupleDColumn("Energy");
   man->CreateNtupleDColumn("XPos");
