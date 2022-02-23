@@ -53,7 +53,11 @@ void Run::Merge(const G4Run* aRun)
 
 void Run::RecordEvent(const G4Event* anEvent)
 {
-  
+  G4int eventNum = anEvent->GetEventID();
+  if (eventNum % 10000 == 0) {
+    std::cout << "Event " << eventNum << " started." << std::endl;
+  }
+
   Analysis* myAnalysis = Analysis::GetAnalysis();
   G4SDManager* sdMan = G4SDManager::GetSDMpointer();
   // Get Primary Energy information:

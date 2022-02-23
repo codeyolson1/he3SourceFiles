@@ -55,7 +55,6 @@ void Analysis::Book(G4String runName)
 {
   convergenceName = runName;
   G4AnalysisManager* man = G4AnalysisManager::Instance();
-  G4SDManager* sdMan = G4SDManager::GetSDMpointer();
   man->SetVerboseLevel(2);
   #ifdef G4MULTITHREADED
     man->SetNtupleMerging(true);
@@ -63,7 +62,7 @@ void Analysis::Book(G4String runName)
   man->SetFirstNtupleId(0);
   man->SetFirstNtupleColumnId(0);
 
-  eDepHist = man->CreateH1("He3EnergyDep", "He3EnergyDep", 1000, 0., 10.);
+  eDepHist = man->CreateH1("He3EnergyDep", "He3EnergyDep", 1000, 0., 5.);
   primEneHist = man->CreateH1("PrimaryEnergy", "PrimaryEnergy", 500, 0., 50.);
   primPosHist = man->CreateH2("PrimaryPosition", "PrimaryPosition", 110, -5.5, 5.5, 90, -4.5, 4.5);
 
@@ -111,6 +110,8 @@ void Analysis::FillEDep(G4double eDep)
   //G4cout << "Adding Energy Deposittion. " << G4endl;+
   G4AnalysisManager* man = G4AnalysisManager::Instance();
   man->FillH1(eDepHist, eDep);
+  G4AutoLock l(&aMutex);
+  fConvTest->AddScore(eDep);
   return;
 }
 

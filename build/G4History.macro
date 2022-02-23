@@ -11,6 +11,7 @@
 /gps/pos/halfz 5 cm
 /gps/pos/centre 4.27 0 0 cm
 /gps/ang/type iso
+/gps/energy 8.23e-1 MeV
 /gps/source/add 1
 /gps/particle neutron
 /gps/pos/type Volume
@@ -20,6 +21,7 @@
 /gps/pos/halfz 5 cm
 /gps/pos/centre -4.27 0 0 cm
 /gps/ang/type iso
+/gps/energy 8.23e-1 MeV
 /gps/source/add 2.322
 /gps/particle neutron
 /gps/pos/type Volume
@@ -29,6 +31,7 @@
 /gps/pos/halfz 5 cm
 /gps/pos/centre 0 3.27 0 cm
 /gps/ang/type iso
+/gps/energy 8.23e-1 MeV
 /gps/source/add 2.322
 /gps/particle neutron
 /gps/pos/type Volume
@@ -39,4 +42,4 @@
 /gps/pos/centre 0 -3.27 0 cm
 /gps/ang/type iso
 /gps/energy 8.23e-1 MeV
-/run/beamOn 10000
+/run/beamOn 1000000

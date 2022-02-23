@@ -1,40 +1,45 @@
 
 G4ConvergenceTester Output Result of ConvTest
-       EFFICIENCY =             0
-             MEAN =             0
-              VAR =             0
-               SD =             0
-                R =             0
-            SHIFT =             0
-              VOV =             0
-              FOM =             0
-THE LARGEST SCORE =             0 and it happened at 0th event
-    Affected Mean =             0
-     Affected VAR =             0
-       Affected R =             0
-   Affected SHIFT =             0
-     Affected FOM =             0
-Variances in all historical grids are zero.
-Terminating checking behavior of statistics numbers.
+       EFFICIENCY =             1
+             MEAN =      0.557086
+              VAR =     0.0454021
+               SD =      0.213078
+                R =    0.00819759
+            SHIFT =    -0.0565419
+              VOV =   0.000391461
+              FOM =        112.93
+THE LARGEST SCORE =      0.838281 and it happened at 816th event
+    Affected Mean =      0.557215 and its ratio to original is 1.00023
+     Affected VAR =     0.0454175 and its ratio to original is 1.00034
+       Affected R =     0.0081952 and its ratio to original is 0.999709
+   Affected SHIFT =    -0.0565779 and its ratio to original is 1.00064
+     Affected FOM =        112.93 and its ratio to original is 1
+MEAN distribution is  RANDOM
+r follows 1/std::sqrt(N)
+r is monotonically decrease 
+r is less than 0.1. r = 0.00819759
+VOV follows 1/std::sqrt(N)
+VOV is monotonically decrease 
+FOM distribution is RANDOM
 SLOPE is not large enough
-This result passes 0 / 8 Convergence Test.
+This result passes 7 / 8 Convergence Test.
 
 
 G4ConvergenceTester Output History of ConvTest
 i/16 till_ith      mean          var           sd            r          vov          fom        shift            e        r2eff        r2int
-   1     0            0            0            0            0            0            0            0            0            0            0
-   2     0            0            0            0            0            0            0            0            0            0            0
-   3     0            0            0            0            0            0            0            0            0            0            0
-   4     0            0            0            0            0            0            0            0            0            0            0
-   5     0            0            0            0            0            0            0            0            0            0            0
-   6     0            0            0            0            0            0            0            0            0            0            0
-   7     0            0            0            0            0            0            0            0            0            0            0
-   8     0            0            0            0            0            0            0            0            0            0            0
-   9     0            0            0            0            0            0            0            0            0            0            0
-  10     0            0            0            0            0            0            0            0            0            0            0
-  11     0            0            0            0            0            0            0            0            0            0            0
-  12     0            0            0            0            0            0            0            0            0            0            0
-  13     0            0            0            0            0            0            0            0            0            0            0
-  14     0            0            0            0            0            0            0            0            0            0            0
-  15     0            0            0            0            0            0            0            0            0            0            0
-  16     0            0            0            0            0            0            0            0            0            0            0
+   1   135     0.570219    0.0405342     0.201331    0.0302761   0.00713318      73.2174   -0.0567017            1            0  0.000909901
+   2   272     0.576699    0.0412258     0.203041    0.0213085   0.00376669      98.1891   -0.0639337            1            0  0.000452391
+   3   408     0.564341    0.0435112     0.208593    0.0182767   0.00185423      95.1886   -0.0535998            1            0   0.00033322
+   4   544     0.566432    0.0439553     0.209655    0.0158548   0.00164706      102.424   -0.0603755            1            0  0.000250912
+   5   680     0.565869      0.04342     0.208375    0.0141109   0.00125538      107.494   -0.0584255            1            0  0.000198826
+   6   816     0.564463    0.0443488     0.210591    0.0130525   0.00114791      108.017   -0.0616156            1            0   0.00017016
+   7   952     0.561182     0.044356     0.210609     0.012157  0.000947293      108.608   -0.0584024            1            0  0.000147637
+   8  1088      0.56007    0.0445669     0.211109    0.0114222  0.000826209      110.285   -0.0582218            1            0  0.000130347
+   9  1224     0.560605    0.0442378     0.210328    0.0107194  0.000738138      113.717   -0.0578161            1            0  0.000114812
+  10  1360     0.562239    0.0442815     0.210432    0.0101452  0.000668115      114.276   -0.0593048            1            0   0.00010285
+  11  1496     0.561619    0.0441251      0.21006   0.00966697  0.000579611      114.521   -0.0568619            1            0  9.33879e-05
+  12  1632      0.55616    0.0452265     0.212665   0.00946244  0.000525432      110.459   -0.0553172            1            0   8.9483e-05
+  13  1768     0.556599    0.0454739     0.213246   0.00910909  0.000481302      110.263    -0.055946            1            0  8.29286e-05
+  14  1904     0.557256     0.045372     0.213007   0.00875773   0.00044417      111.143   -0.0560921            1            0  7.66575e-05
+  15  2040     0.557556    0.0453791     0.213024   0.00845703  0.000416008      111.828   -0.0567362            1            0  7.14862e-05
+  16  2176     0.557086    0.0454021     0.213078   0.00819759  0.000391461      113.042   -0.0565419            1            0  6.71696e-05
