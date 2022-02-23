@@ -623,6 +623,7 @@ CMakeFiles/he3.dir/src/Analysis.cc.o
  /mnt/f/geant4_install/include/Geant4/G4Cache.hh
  /mnt/f/geant4_install/include/Geant4/G4CacheDetails.hh
  /mnt/f/geant4_install/include/Geant4/G4CollectionNameVector.hh
+ /mnt/f/geant4_install/include/Geant4/G4ConvergenceTester.hh
  /mnt/f/geant4_install/include/Geant4/G4DataVector.hh
  /mnt/f/geant4_install/include/Geant4/G4DataVector.icc
  /mnt/f/geant4_install/include/Geant4/G4DynamicParticle.hh
@@ -701,6 +702,8 @@ CMakeFiles/he3.dir/src/Analysis.cc.o
  /mnt/f/geant4_install/include/Geant4/G4SDStructure.hh
  /mnt/f/geant4_install/include/Geant4/G4SandiaTable.hh
  /mnt/f/geant4_install/include/Geant4/G4SensitiveVolumeList.hh
+ /mnt/f/geant4_install/include/Geant4/G4SimplexDownhill.hh
+ /mnt/f/geant4_install/include/Geant4/G4SimplexDownhill.icc
  /mnt/f/geant4_install/include/Geant4/G4Step.hh
  /mnt/f/geant4_install/include/Geant4/G4Step.icc
  /mnt/f/geant4_install/include/Geant4/G4StepPoint.hh
@@ -724,6 +727,8 @@ CMakeFiles/he3.dir/src/Analysis.cc.o
  /mnt/f/geant4_install/include/Geant4/G4ThreadLocalSingleton.hh
  /mnt/f/geant4_install/include/Geant4/G4Threading.hh
  /mnt/f/geant4_install/include/Geant4/G4ThreeVector.hh
+ /mnt/f/geant4_install/include/Geant4/G4Timer.hh
+ /mnt/f/geant4_install/include/Geant4/G4Timer.icc
  /mnt/f/geant4_install/include/Geant4/G4ToolsAnalysisManager.hh
  /mnt/f/geant4_install/include/Geant4/G4ToolsAnalysisManager.icc
  /mnt/f/geant4_install/include/Geant4/G4ToolsAnalysisReader.hh

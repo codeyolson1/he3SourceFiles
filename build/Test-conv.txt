@@ -1,0 +1,40 @@
+
+G4ConvergenceTester Output Result of ConvTest
+       EFFICIENCY =             0
+             MEAN =             0
+              VAR =             0
+               SD =             0
+                R =             0
+            SHIFT =             0
+              VOV =             0
+              FOM =             0
+THE LARGEST SCORE =             0 and it happened at 0th event
+    Affected Mean =             0
+     Affected VAR =             0
+       Affected R =             0
+   Affected SHIFT =             0
+     Affected FOM =             0
+Variances in all historical grids are zero.
+Terminating checking behavior of statistics numbers.
+SLOPE is not large enough
+This result passes 0 / 8 Convergence Test.
+
+
+G4ConvergenceTester Output History of ConvTest
+i/16 till_ith      mean          var           sd            r          vov          fom        shift            e        r2eff        r2int
+   1     0            0            0            0            0            0            0            0            0            0            0
+   2     0            0            0            0            0            0            0            0            0            0            0
+   3     0            0            0            0            0            0            0            0            0            0            0
+   4     0            0            0            0            0            0            0            0            0            0            0
+   5     0            0            0            0            0            0            0            0            0            0            0
+   6     0            0            0            0            0            0            0            0            0            0            0
+   7     0            0            0            0            0            0            0            0            0            0            0
+   8     0            0            0            0            0            0            0            0            0            0            0
+   9     0            0            0            0            0            0            0            0            0            0            0
+  10     0            0            0            0            0            0            0            0            0            0            0
+  11     0            0            0            0            0            0            0            0            0            0            0
+  12     0            0            0            0            0            0            0            0            0            0            0
+  13     0            0            0            0            0            0            0            0            0            0            0
+  14     0            0            0            0            0            0            0            0            0            0            0
+  15     0            0            0            0            0            0            0            0            0            0            0
+  16     0            0            0            0            0            0            0            0            0            0            0

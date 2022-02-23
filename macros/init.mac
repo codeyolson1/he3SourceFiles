@@ -3,14 +3,14 @@
 # Set verbosities
 /control/verbose 2
 /control/saveHistory
-/run/verbose 1
+/run/verbose 2
 
 # Multithreading info:
-/run/useMaximumLogicalCores
+/run/numberOfThreads 4
 /control/cout/useBuffer false
 
 # Initialize kernel
 /run/initialize
 
 # Visualization settings
-/control/execute vis.mac
+#/control/execute vis.mac

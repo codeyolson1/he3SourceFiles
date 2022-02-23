@@ -29,9 +29,7 @@ RunAction::RunAction() : G4UserRunAction()
 
   G4String primEnergy = "grp28";
 
-  outFileName = "EDep_He3_" + primEnergy;
-
-  eDepTest = new G4ConvergenceTester("EnergyDeposition");
+  outFileName = "Test";
 }
 //
 //
@@ -48,32 +46,21 @@ G4Run* RunAction::GenerateRun()
 void RunAction::BeginOfRunAction(const G4Run*)
 {
   Analysis* myAnalysis = Analysis::GetAnalysis();
-  myAnalysis->Book();
+  myAnalysis->Book(outFileName);
   myAnalysis->OpenFile(outFileName);
-  if (IsMaster()) {
-    eDepTest = new G4ConvergenceTester("EnergyDeposition");
-  }
 } 
 //
 //
 void RunAction::EndOfRunAction(const G4Run* aRun)
 {
-  Analysis* myana = Analysis::GetAnalysis();
+  Analysis* myAnalysis = Analysis::GetAnalysis();
   if (IsMaster()) {
     G4cout << "End of Global Run" << G4endl;
-    myana->Save();
-    myana->Close();
+    myAnalysis->Save();
+    myAnalysis->Close();
     const Run* myRun = static_cast<const Run*>(aRun);
-    for (G4int i = 0; i != myRun->GetNumEntries(); i++) {
-      G4double eDep = myRun->GetEDepAtEvent(i);
-      eDepTest->AddScore(eDep);
-    }
-    std::ofstream convergence;
-    convergence.open("convergence.txt");
-    eDepTest->ShowResult(convergence);
-    eDepTest->ShowHistory(convergence);
-    convergence.close();
+    myAnalysis->CheckConvergence();
   } else {
-    myana->Save();
+    myAnalysis->Save();
   }
 }

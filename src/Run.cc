@@ -61,12 +61,11 @@ void Run::RecordEvent(const G4Event* anEvent)
   G4ThreeVector primPos = pVertex->GetPosition();
   G4PrimaryParticle* primary = pVertex->GetPrimary();
   G4double primEnergy = primary->GetKineticEnergy();
-  myAnalysis->FillPrimary(primEnergy/MeV);
+  myAnalysis->FillPrimaryEne(primEnergy/MeV);
   myAnalysis->FillPrimaryPos(primPos.getX()/cm, primPos.getY()/cm);
 
   //G4cout << "Primary Energy is: " << energy/MeV << G4endl;
   G4HCofThisEvent* hce = anEvent->GetHCofThisEvent();
- 
   G4int collID = sdMan->GetCollectionID("Helium-3/EnergyDep");
   if (!hce) return;
   G4THitsMap<G4double>* eventMap = 0;
@@ -76,22 +75,8 @@ void Run::RecordEvent(const G4Event* anEvent)
     for (auto itr = eventMap->begin(); itr != eventMap->end(); itr++) {
       val += *itr->second;
     }
-    myAnalysis->FillEDep(val/MeV, 0);
-    EDepPerEvent.push_back(val/MeV);
-  
-
-    G4int collID2 = sdMan->GetCollectionID("BF32/EnergyDep2");
-    if (!hce) return;
-    G4THitsMap<G4double>* eventMap2 = 0;
-    eventMap2 = static_cast<G4THitsMap<G4double>*>(hce->GetHC(collID2));
-    if (eventMap2 && eventMap2->entries() >= 1) {
-      G4double val2 = 0.;
-      for (auto itr = eventMap2->begin(); itr != eventMap2->end(); itr++) {
-        val2 += *itr->second;
-      }
-      //G4cout << "Detector 2: " << val2/MeV << G4endl;
-      myAnalysis->FillEDep(val2/MeV, 0);
-      EDepPerEvent.push_back(val2/MeV);
+    if (val > 0.) {
+      myAnalysis->FillEDep(val/MeV);
     }
   }
 

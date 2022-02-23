@@ -12,11 +12,21 @@
 #include "G4SDManager.hh"
 #include "g4root.hh"
 #include "G4RootAnalysisManager.hh"
+#include "G4ConvergenceTester.hh"
 
 G4ThreadLocal Analysis* theAnalysis = 0;
 
+namespace {
+  G4Mutex aMutex = G4MUTEX_INITIALIZER;
+  G4ConvergenceTester* fConvTest = new G4ConvergenceTester("ConvTest");
+}
+
 Analysis::Analysis()
 {
+  eDepHist = 0;
+  primEneHist = 0;
+  primPosHist = 0;
+  convergenceName = "";
 }
 
 //
@@ -41,8 +51,9 @@ Analysis* Analysis::GetAnalysis()
 //
 //
 
-void Analysis::Book()
+void Analysis::Book(G4String runName)
 {
+  convergenceName = runName;
   G4AnalysisManager* man = G4AnalysisManager::Instance();
   G4SDManager* sdMan = G4SDManager::GetSDMpointer();
   man->SetVerboseLevel(2);
@@ -52,15 +63,10 @@ void Analysis::Book()
   man->SetFirstNtupleId(0);
   man->SetFirstNtupleColumnId(0);
 
-  man->CreateNtuple("Helium3", "Helium3");
-  man->CreateNtupleDColumn("EDep");
-  man->FinishNtuple();
+  eDepHist = man->CreateH1("He3EnergyDep", "He3EnergyDep", 1000, 0., 10.);
+  primEneHist = man->CreateH1("PrimaryEnergy", "PrimaryEnergy", 500, 0., 50.);
+  primPosHist = man->CreateH2("PrimaryPosition", "PrimaryPosition", 110, -5.5, 5.5, 90, -4.5, 4.5);
 
-  man->CreateNtuple("Primary", "Primary");
-  man->CreateNtupleDColumn("Energy");
-  man->CreateNtupleDColumn("XPos");
-  man->CreateNtupleDColumn("YPos");
-  man->FinishNtuple();
   return; 
 }
 
@@ -100,22 +106,21 @@ void Analysis::Close(G4bool reset)
 //
 //
 
-void Analysis::FillEDep(G4double eDep, G4int col)
+void Analysis::FillEDep(G4double eDep)
 {
   //G4cout << "Adding Energy Deposittion. " << G4endl;+
   G4AnalysisManager* man = G4AnalysisManager::Instance();
-  man->FillNtupleDColumn(0, col, eDep);
-  man->AddNtupleRow(0);
+  man->FillH1(eDepHist, eDep);
   return;
 }
 
 //
 //
 
-void Analysis::FillPrimary(G4double energy)
+void Analysis::FillPrimaryEne(G4double energy)
 { 
   G4AnalysisManager* man = G4AnalysisManager::Instance();
-  man->FillNtupleDColumn(1, 0, energy);
+  man->FillH1(primEneHist, energy);
 }
 
 //
@@ -124,7 +129,19 @@ void Analysis::FillPrimary(G4double energy)
 void Analysis::FillPrimaryPos(G4double xPos, G4double yPos)
 {
   G4AnalysisManager* man = G4AnalysisManager::Instance();
-  man->FillNtupleDColumn(1, 1, xPos);
-  man->FillNtupleDColumn(1, 2, yPos);
-  man->AddNtupleRow(1);
+  man->FillH2(primPosHist, xPos, yPos);
+}
+
+//
+//
+
+void Analysis::CheckConvergence()
+{
+  std::ofstream convOutput;
+  convOutput.open(convergenceName+"-conv.txt");
+  fConvTest->ShowResult(convOutput);
+  fConvTest->ShowHistory(convOutput);
+  convOutput.close();
+
+  return;
 }

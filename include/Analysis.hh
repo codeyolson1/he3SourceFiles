@@ -21,28 +21,26 @@ class Analysis {
 
     static Analysis* GetAnalysis();
 
-    void Book();
+    void Book(G4String);
     void EndOfRun();
 
     void OpenFile(const G4String& fname);
     void Save();
     void Close(G4bool reset = true);
 
-    void FillDose(const G4String& detName, const G4String& collName, G4double dose);
-    void FillEDep(G4double eDep, G4int col);
-    G4int FindNtupleID(const G4String& detName);
-    G4int FindNtupleColID(const G4String& collName);
-    void FillPrimary(G4double);
+    void FillEDep(G4double eDep);
+    void FillPrimaryEne(G4double);
     void FillPrimaryPos(G4double, G4double);
+    void CheckConvergence();
 
   private:
     Analysis();
     DISALLOW_COPY_AND_ASSIGN(Analysis);
 
-    std::vector<G4String> fdetNames;
-    std::map<G4String, G4int> fntupleIDs;
-    std::map<G4String, G4int> fcolIDs;
-    G4int nPrims;
+    G4int eDepHist;
+    G4int primEneHist;
+    G4int primPosHist;
+    G4String convergenceName;
 };
 
 #endif

@@ -622,6 +622,7 @@ CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4Bin
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4Cache.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4CacheDetails.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4CollectionNameVector.hh
+CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4ConvergenceTester.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4DataVector.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4DataVector.icc
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4DynamicParticle.hh
@@ -700,6 +701,8 @@ CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4SDM
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4SDStructure.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4SandiaTable.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4SensitiveVolumeList.hh
+CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4SimplexDownhill.hh
+CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4SimplexDownhill.icc
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4Step.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4Step.icc
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4StepPoint.hh
@@ -723,6 +726,8 @@ CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4TRN
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4ThreadLocalSingleton.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4Threading.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4ThreeVector.hh
+CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4Timer.hh
+CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4Timer.icc
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4ToolsAnalysisManager.hh
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4ToolsAnalysisManager.icc
 CMakeFiles/he3.dir/src/Analysis.cc.o: /mnt/f/geant4_install/include/Geant4/G4ToolsAnalysisReader.hh

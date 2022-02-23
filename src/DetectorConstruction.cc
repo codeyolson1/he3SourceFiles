@@ -97,18 +97,16 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4LogicalVolume* logicWorld = new G4LogicalVolume(solidWorld, fmats["air"], "World");
   G4VPhysicalVolume* physWorld = new G4PVPlacement(0, G4ThreeVector(), logicWorld, "World", 0, false, 0, checkOverlaps);
 
-  // Specify here if the detector will be he3
   G4double tubeDiam;
   G4double tubeHeight;
   G4double modx, mody, modz;
 
   // Tube and moderator dimensions:
-
   tubeDiam = 2.54*cm;
   tubeHeight = 10*cm;
   modx = 6.54*cm; mody = 4.54*cm; modz = tubeHeight;
 
-  
+  // Tube Construction
   G4Tubs* ssShellSolid = new G4Tubs("SS Shell", 0, 0.5*tubeDiam, 0.5*tubeHeight, 0, 360.*deg);
   G4LogicalVolume* ssShellLogic = new G4LogicalVolume(ssShellSolid, fmats["aluminum"], "SS Shell");
   new G4PVPlacement(0, G4ThreeVector(), ssShellLogic, "SS Shell", logicWorld, false, 0, checkOverlaps); 

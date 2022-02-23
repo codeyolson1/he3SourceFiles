@@ -34,7 +34,6 @@ class RunAction : public G4UserRunAction
 
   private:
     G4String outFileName;
-    G4ConvergenceTester* eDepTest;
 
 };
 
