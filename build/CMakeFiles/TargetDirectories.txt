@@ -1,0 +1,8 @@
+/mnt/f/he3SourceFiles/build/CMakeFiles/install/strip.dir
+/mnt/f/he3SourceFiles/build/CMakeFiles/install/local.dir
+/mnt/f/he3SourceFiles/build/CMakeFiles/install.dir
+/mnt/f/he3SourceFiles/build/CMakeFiles/list_install_components.dir
+/mnt/f/he3SourceFiles/build/CMakeFiles/rebuild_cache.dir
+/mnt/f/he3SourceFiles/build/CMakeFiles/edit_cache.dir
+/mnt/f/he3SourceFiles/build/CMakeFiles/Helium3Detector.dir
+/mnt/f/he3SourceFiles/build/CMakeFiles/he3.dir
