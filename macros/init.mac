@@ -6,7 +6,7 @@
 /run/verbose 2
 
 # Multithreading info:
-/run/numberOfThreads 7
+/run/numberOfThreads 4
 /control/cout/useBuffer false
 
 # Initialize kernel

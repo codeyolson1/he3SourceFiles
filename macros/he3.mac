@@ -1,6 +1,5 @@
 # He3 Source:
 # Pos X Box:
-/gps/particle neutron
 /gps/pos/type Volume 
 /gps/pos/shape Para
 /gps/pos/halfx 1 cm
@@ -8,10 +7,9 @@
 /gps/pos/halfz 5 cm
 /gps/pos/centre 4.27 0 0 cm
 /gps/ang/type iso
-/gps/energy 8.23e-1 MeV
+/control/execute PuBeSpec.mac
 # Neg X box:
 /gps/source/add 1
-/gps/particle neutron
 /gps/pos/type Volume 
 /gps/pos/shape Para
 /gps/pos/halfx 1 cm
@@ -19,10 +17,9 @@
 /gps/pos/halfz 5 cm
 /gps/pos/centre -4.27 0 0 cm
 /gps/ang/type iso
-/gps/energy 8.23e-1 MeV
+/control/execute PuBeSpec.mac
 # Pos Y box:
 /gps/source/add 2.322
-/gps/particle neutron
 /gps/pos/type Volume 
 /gps/pos/shape Para
 /gps/pos/halfx 5.27 cm
@@ -30,10 +27,9 @@
 /gps/pos/halfz 5 cm
 /gps/pos/centre 0 3.27 0 cm
 /gps/ang/type iso
-/gps/energy 8.23e-1 MeV
+/control/execute PuBeSpec.mac
 # Neg Y box:
 /gps/source/add 2.322
-/gps/particle neutron
 /gps/pos/type Volume 
 /gps/pos/shape Para
 /gps/pos/halfx 5.27 cm
@@ -41,6 +37,5 @@
 /gps/pos/halfz 5 cm
 /gps/pos/centre 0 -3.27 0 cm
 /gps/ang/type iso
-
-/gps/energy 8.23e-1 MeV
+/control/execute PuBeSpec.mac
 /run/beamOn 1000000

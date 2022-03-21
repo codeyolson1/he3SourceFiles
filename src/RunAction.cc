@@ -27,9 +27,8 @@
 RunAction::RunAction() : G4UserRunAction()
 {
 
-  G4String primEnergy = "grp28";
-
-  outFileName = "Test";
+  fMessenger = new RunActionMessenger(this);
+  outFileName = "PuBeTest";
 }
 //
 //
@@ -63,4 +62,12 @@ void RunAction::EndOfRunAction(const G4Run* aRun)
   } else {
     myAnalysis->Save();
   }
+}
+
+//
+//
+
+void RunAction::SetFileName(G4String name)
+{
+  outFileName = name;
 }

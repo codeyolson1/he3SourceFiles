@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.o"
   "CMakeFiles/he3.dir/src/Run.cc.o"
   "CMakeFiles/he3.dir/src/RunAction.cc.o"
+  "CMakeFiles/he3.dir/src/RunActionMessenger.cc.o"
   "he3"
   "he3.pdb"
 )
