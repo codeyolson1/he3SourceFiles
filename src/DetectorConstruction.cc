@@ -128,11 +128,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 void DetectorConstruction::ConstructSDandField()
 {
- 
-    G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
-    G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
-    G4VPrimitiveScorer* energyDep = new G4PSEnergyDeposit("EnergyDep");
-    he3Detector->RegisterPrimitive(energyDep);
-    SetSensitiveDetector("He3 Gas", he3Detector);
+
+  G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
+  G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
+  G4VPrimitiveScorer* energyDep = new G4PSEnergyDeposit("EnergyDep");
+  he3Detector->RegisterPrimitive(energyDep);
+  SetSensitiveDetector("He3 Gas", he3Detector);
 
 }
