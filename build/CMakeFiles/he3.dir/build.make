@@ -122,9 +122,48 @@ CMakeFiles/he3.dir/src/EventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/he3.dir/src/EventAction.cc.s"
 	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/f/he3SourceFiles/src/EventAction.cc -o CMakeFiles/he3.dir/src/EventAction.cc.s
 
+CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.o: CMakeFiles/he3.dir/flags.make
+CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.o: ../src/G4HadronElasticPhysicsHP.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.o"
+	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.o -c /mnt/f/he3SourceFiles/src/G4HadronElasticPhysicsHP.cc
+
+CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.i"
+	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/f/he3SourceFiles/src/G4HadronElasticPhysicsHP.cc > CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.i
+
+CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.s"
+	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/f/he3SourceFiles/src/G4HadronElasticPhysicsHP.cc -o CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.s
+
+CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.o: CMakeFiles/he3.dir/flags.make
+CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.o: ../src/G4PSEnergyDeposit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.o"
+	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.o -c /mnt/f/he3SourceFiles/src/G4PSEnergyDeposit.cc
+
+CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.i"
+	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/f/he3SourceFiles/src/G4PSEnergyDeposit.cc > CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.i
+
+CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.s"
+	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/f/he3SourceFiles/src/G4PSEnergyDeposit.cc -o CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.s
+
+CMakeFiles/he3.dir/src/NeutronHPphysics.cc.o: CMakeFiles/he3.dir/flags.make
+CMakeFiles/he3.dir/src/NeutronHPphysics.cc.o: ../src/NeutronHPphysics.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/he3.dir/src/NeutronHPphysics.cc.o"
+	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/he3.dir/src/NeutronHPphysics.cc.o -c /mnt/f/he3SourceFiles/src/NeutronHPphysics.cc
+
+CMakeFiles/he3.dir/src/NeutronHPphysics.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/he3.dir/src/NeutronHPphysics.cc.i"
+	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/f/he3SourceFiles/src/NeutronHPphysics.cc > CMakeFiles/he3.dir/src/NeutronHPphysics.cc.i
+
+CMakeFiles/he3.dir/src/NeutronHPphysics.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/he3.dir/src/NeutronHPphysics.cc.s"
+	/bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/f/he3SourceFiles/src/NeutronHPphysics.cc -o CMakeFiles/he3.dir/src/NeutronHPphysics.cc.s
+
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: CMakeFiles/he3.dir/flags.make
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: ../src/PhysicsList.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/he3.dir/src/PhysicsList.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/he3.dir/src/PhysicsList.cc.o"
 	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/he3.dir/src/PhysicsList.cc.o -c /mnt/f/he3SourceFiles/src/PhysicsList.cc
 
 CMakeFiles/he3.dir/src/PhysicsList.cc.i: cmake_force
@@ -137,7 +176,7 @@ CMakeFiles/he3.dir/src/PhysicsList.cc.s: cmake_force
 
 CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/he3.dir/flags.make
 CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.o: ../src/PrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.o"
 	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.o -c /mnt/f/he3SourceFiles/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
@@ -150,7 +189,7 @@ CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 
 CMakeFiles/he3.dir/src/Run.cc.o: CMakeFiles/he3.dir/flags.make
 CMakeFiles/he3.dir/src/Run.cc.o: ../src/Run.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/he3.dir/src/Run.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/he3.dir/src/Run.cc.o"
 	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/he3.dir/src/Run.cc.o -c /mnt/f/he3SourceFiles/src/Run.cc
 
 CMakeFiles/he3.dir/src/Run.cc.i: cmake_force
@@ -163,7 +202,7 @@ CMakeFiles/he3.dir/src/Run.cc.s: cmake_force
 
 CMakeFiles/he3.dir/src/RunAction.cc.o: CMakeFiles/he3.dir/flags.make
 CMakeFiles/he3.dir/src/RunAction.cc.o: ../src/RunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/he3.dir/src/RunAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/he3.dir/src/RunAction.cc.o"
 	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/he3.dir/src/RunAction.cc.o -c /mnt/f/he3SourceFiles/src/RunAction.cc
 
 CMakeFiles/he3.dir/src/RunAction.cc.i: cmake_force
@@ -176,7 +215,7 @@ CMakeFiles/he3.dir/src/RunAction.cc.s: cmake_force
 
 CMakeFiles/he3.dir/src/RunActionMessenger.cc.o: CMakeFiles/he3.dir/flags.make
 CMakeFiles/he3.dir/src/RunActionMessenger.cc.o: ../src/RunActionMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/he3.dir/src/RunActionMessenger.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/he3.dir/src/RunActionMessenger.cc.o"
 	/bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/he3.dir/src/RunActionMessenger.cc.o -c /mnt/f/he3SourceFiles/src/RunActionMessenger.cc
 
 CMakeFiles/he3.dir/src/RunActionMessenger.cc.i: cmake_force
@@ -194,6 +233,9 @@ he3_OBJECTS = \
 "CMakeFiles/he3.dir/src/Analysis.cc.o" \
 "CMakeFiles/he3.dir/src/DetectorConstruction.cc.o" \
 "CMakeFiles/he3.dir/src/EventAction.cc.o" \
+"CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.o" \
+"CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.o" \
+"CMakeFiles/he3.dir/src/NeutronHPphysics.cc.o" \
 "CMakeFiles/he3.dir/src/PhysicsList.cc.o" \
 "CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.o" \
 "CMakeFiles/he3.dir/src/Run.cc.o" \
@@ -208,6 +250,9 @@ he3: CMakeFiles/he3.dir/src/ActionInitialization.cc.o
 he3: CMakeFiles/he3.dir/src/Analysis.cc.o
 he3: CMakeFiles/he3.dir/src/DetectorConstruction.cc.o
 he3: CMakeFiles/he3.dir/src/EventAction.cc.o
+he3: CMakeFiles/he3.dir/src/G4HadronElasticPhysicsHP.cc.o
+he3: CMakeFiles/he3.dir/src/G4PSEnergyDeposit.cc.o
+he3: CMakeFiles/he3.dir/src/NeutronHPphysics.cc.o
 he3: CMakeFiles/he3.dir/src/PhysicsList.cc.o
 he3: CMakeFiles/he3.dir/src/PrimaryGeneratorAction.cc.o
 he3: CMakeFiles/he3.dir/src/Run.cc.o
@@ -262,7 +307,7 @@ he3: /mnt/f/geant4_install/lib/libG4global.so
 he3: /mnt/f/geant4_install/lib/libG4clhep.so
 he3: /mnt/f/geant4_install/lib/libG4ptl.so.0.0.2
 he3: CMakeFiles/he3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable he3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/f/he3SourceFiles/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable he3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/he3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

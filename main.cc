@@ -8,10 +8,11 @@
 #include "G4UserRunAction.hh"
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
-
+#include "G4ParticleHPManager.hh"
 #include "ActionInitialization.hh"
 #include "DetectorConstruction.hh"
-#include "QGSP_BIC_HP.hh"
+#include "QGSP_BIC_AllHP.hh"
+#include "FTFP_BERT_HP.hh"
 #include "globals.hh"
 #include "PhysicsList.hh"
 
@@ -28,10 +29,17 @@ int main(int argc, char** argv)
   runManager->SetUserInitialization(new DetectorConstruction());
 
   G4VModularPhysicsList* physicsList = new PhysicsList();
+  physicsList->SetDefaultCutValue(100*CLHEP::um);
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
   runManager->SetVerboseLevel(0);
-
+  G4ParticleHPManager::GetInstance()->SetSkipMissingIsotopes( false );
+  G4ParticleHPManager::GetInstance()->SetDoNotAdjustFinalState( false );
+  G4ParticleHPManager::GetInstance()->SetUseOnlyPhotoEvaporation( false );
+  G4ParticleHPManager::GetInstance()->SetNeglectDoppler( false );
+  G4ParticleHPManager::GetInstance()->SetProduceFissionFragments( false );
+  G4ParticleHPManager::GetInstance()->SetUseWendtFissionModel( false );
+  G4ParticleHPManager::GetInstance()->SetUseNRESP71Model( false );
   runManager->SetUserInitialization(new ActionInitialization());
 
   G4VisManager* visManager = new G4VisExecutive;

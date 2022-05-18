@@ -67,7 +67,7 @@ void DetectorConstruction::ConstructMaterials()
   G4Material* poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
   fmats["poly"] = poly;
 
-  G4Material* he3 = new G4Material("Helium 3", 5.39e-4*g/cm3, 1, kStateGas, 297.039*kelvin, 4.*atmosphere); // From Walker Dissertai
+  G4Material* he3 = new G4Material("Helium 3", 5.39e-4*g/cm3, 1, kStateGas, 293*kelvin, 4.*atmosphere); // From Walker Dissertai
   G4Element* helium = new G4Element("Helium", "He", 1);
   G4Isotope* helium3 = new G4Isotope("Helium3", 2, 3, 3.01602932197*g/mole); // from IAEA
   helium->AddIsotope(helium3, 100.*perCent);
@@ -122,16 +122,23 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4VSolid* he3ModeratorSolid = new G4SubtractionSolid("He3 Moderator", moderatorDummy, moderatorVoidDummy, 0, G4ThreeVector());
   G4LogicalVolume* he3ModeratorLogic = new G4LogicalVolume(he3ModeratorSolid, fmats["poly"], "He3 Moderator");
   new G4PVPlacement(0, G4ThreeVector(), he3ModeratorLogic, "He3 Moderator", logicWorld, false, 0, checkOverlaps);
+
+  G4Box* airSourceDummy = new G4Box("AirSourceDummy", 5.27*cm, 4.27*cm, 5.*cm);
+  G4VSolid* airSource = new G4SubtractionSolid("AirSource", airSourceDummy, moderatorDummy, 0, G4ThreeVector(0, 0, 0));
+  G4LogicalVolume* airLogic = new G4LogicalVolume(airSource, fmats["air"], "AirSource");
+  new G4PVPlacement(0, G4ThreeVector(0, 0, 0), airLogic, "AirSource", logicWorld, false, 0, checkOverlaps);
  
   return physWorld;
 }
 
 void DetectorConstruction::ConstructSDandField()
 {
-
+  G4SDParticleFilter* nFilter = new G4SDParticleFilter("NeutronFilter");
+  nFilter->add("neutron");
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
   G4VPrimitiveScorer* energyDep = new G4PSEnergyDeposit("EnergyDep");
+  //energyDep->SetFilter(nFilter);
   he3Detector->RegisterPrimitive(energyDep);
   SetSensitiveDetector("He3 Gas", he3Detector);
 

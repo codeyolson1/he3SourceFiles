@@ -34,9 +34,10 @@
 
 //#include "GammaNuclearPhysics.hh"
 #include "G4RadioactiveDecayPhysics.hh"
+#include "G4NeutronHPThermalScattering.hh"
 
 // particles
-
+#include "NeutronHPphysics.hh"
 #include "G4BosonConstructor.hh"
 #include "G4LeptonConstructor.hh"
 #include "G4MesonConstructor.hh"
@@ -60,14 +61,13 @@ PhysicsList::PhysicsList()
   
   // Hadron Elastic scattering
   //
-  RegisterPhysics( new G4HadronElasticPhysicsHP(verb));
-  ///RegisterPhysics( new G4HadronElasticPhysicsXS(verb));  
-
+  RegisterPhysics( new NeutronHPphysics("neutronHP"));
+  //RegisterPhysics( new G4HadronElasticPhysicsXS(verb));  
   // Hadron Inelastic physics
   //
   ////RegisterPhysics( new G4HadronPhysicsFTFP_BERT_HP(verb));
-  RegisterPhysics( new G4HadronPhysicsQGSP_BIC_HP(verb));
-  ////RegisterPhysics( new G4HadronPhysicsQGSP_BIC_AllHP(verb));
+  //RegisterPhysics( new G4HadronPhysicsQGSP_BIC_HP(verb));
+  //RegisterPhysics( new G4HadronPhysicsQGSP_BIC_AllHP(verb));
   ////RegisterPhysics( new G4HadronPhysicsQGSP_BIC(verb));  
   ////RegisterPhysics( new G4HadronInelasticQBBC(verb));
   ////RegisterPhysics( new G4HadronPhysicsINCLXX(verb));
@@ -92,7 +92,7 @@ PhysicsList::PhysicsList()
   //RegisterPhysics( new GammaNuclearPhysics("gamma"));
   
   // Radioactive decay
-  //RegisterPhysics(new G4RadioactiveDecayPhysics());
+  RegisterPhysics(new G4RadioactiveDecayPhysics());
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
