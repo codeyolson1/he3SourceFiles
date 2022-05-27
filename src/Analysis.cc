@@ -63,7 +63,7 @@ void Analysis::Book(G4String runName)
   man->SetFirstNtupleColumnId(0);
 
   eDepHist = man->CreateH1("He3EnergyDep", "He3EnergyDep", 1000, 0., 5.);
-  primEneHist = man->CreateH1("PrimaryEnergy", "PrimaryEnergy", 500, 0., 50.);
+  primEneHist = man->CreateH1("PrimaryEnergy", "PrimaryEnergy", 50, 0., 20.);
   primPosHist = man->CreateH2("PrimaryPosition", "PrimaryPosition", 110, -5.5, 5.5, 90, -4.5, 4.5);
 
   return; 

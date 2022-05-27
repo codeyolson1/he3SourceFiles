@@ -35,7 +35,7 @@
 //#include "GammaNuclearPhysics.hh"
 #include "G4RadioactiveDecayPhysics.hh"
 #include "G4NeutronHPThermalScattering.hh"
-
+#include "G4DecayPhysics.hh"
 // particles
 #include "NeutronHPphysics.hh"
 #include "G4BosonConstructor.hh"
@@ -93,6 +93,7 @@ PhysicsList::PhysicsList()
   
   // Radioactive decay
   RegisterPhysics(new G4RadioactiveDecayPhysics());
+  RegisterPhysics(new G4DecayPhysics());
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

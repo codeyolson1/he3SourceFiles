@@ -135,10 +135,15 @@ void DetectorConstruction::ConstructSDandField()
 {
   G4SDParticleFilter* nFilter = new G4SDParticleFilter("NeutronFilter");
   nFilter->add("neutron");
+  nFilter->add("proton");
+  nFilter->add("triton");
+  nFilter->add("He3");
+  nFilter->add("deuteron");
+  nFilter->add("GenericIon");
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
   G4VPrimitiveScorer* energyDep = new G4PSEnergyDeposit("EnergyDep");
-  //energyDep->SetFilter(nFilter);
+  energyDep->SetFilter(nFilter);
   he3Detector->RegisterPrimitive(energyDep);
   SetSensitiveDetector("He3 Gas", he3Detector);
 

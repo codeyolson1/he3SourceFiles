@@ -2277,6 +2277,9 @@ CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4DMesonZero.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4DataVector.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4DataVector.icc
+CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4Decay.hh
+CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4DecayPhysics.hh
+CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4DecayProcessType.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4Deuteron.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4DsMesonMinus.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4DsMesonPlus.hh
@@ -2379,6 +2382,7 @@ CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4PDefManager.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4ParticleChange.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4ParticleChange.icc
+CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4ParticleChangeForDecay.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4ParticleDefinition.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4ParticleDefinition.icc
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4ParticleHPThermalScattering.hh
@@ -2463,6 +2467,7 @@ CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4VPhysicalVolume.icc
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4VPhysicsConstructor.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4VProcess.hh
+CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4VRestDiscreteProcess.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4VTouchable.hh
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4VTouchable.icc
 CMakeFiles/he3.dir/src/PhysicsList.cc.o: /mnt/f/geant4_install/include/Geant4/G4VUPLSplitter.hh

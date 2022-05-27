@@ -2278,6 +2278,9 @@ CMakeFiles/he3.dir/src/PhysicsList.cc.o
  /mnt/f/geant4_install/include/Geant4/G4DMesonZero.hh
  /mnt/f/geant4_install/include/Geant4/G4DataVector.hh
  /mnt/f/geant4_install/include/Geant4/G4DataVector.icc
+ /mnt/f/geant4_install/include/Geant4/G4Decay.hh
+ /mnt/f/geant4_install/include/Geant4/G4DecayPhysics.hh
+ /mnt/f/geant4_install/include/Geant4/G4DecayProcessType.hh
  /mnt/f/geant4_install/include/Geant4/G4Deuteron.hh
  /mnt/f/geant4_install/include/Geant4/G4DsMesonMinus.hh
  /mnt/f/geant4_install/include/Geant4/G4DsMesonPlus.hh
@@ -2380,6 +2383,7 @@ CMakeFiles/he3.dir/src/PhysicsList.cc.o
  /mnt/f/geant4_install/include/Geant4/G4PDefManager.hh
  /mnt/f/geant4_install/include/Geant4/G4ParticleChange.hh
  /mnt/f/geant4_install/include/Geant4/G4ParticleChange.icc
+ /mnt/f/geant4_install/include/Geant4/G4ParticleChangeForDecay.hh
  /mnt/f/geant4_install/include/Geant4/G4ParticleDefinition.hh
  /mnt/f/geant4_install/include/Geant4/G4ParticleDefinition.icc
  /mnt/f/geant4_install/include/Geant4/G4ParticleHPThermalScattering.hh
@@ -2464,6 +2468,7 @@ CMakeFiles/he3.dir/src/PhysicsList.cc.o
  /mnt/f/geant4_install/include/Geant4/G4VPhysicalVolume.icc
  /mnt/f/geant4_install/include/Geant4/G4VPhysicsConstructor.hh
  /mnt/f/geant4_install/include/Geant4/G4VProcess.hh
+ /mnt/f/geant4_install/include/Geant4/G4VRestDiscreteProcess.hh
  /mnt/f/geant4_install/include/Geant4/G4VTouchable.hh
  /mnt/f/geant4_install/include/Geant4/G4VTouchable.icc
  /mnt/f/geant4_install/include/Geant4/G4VUPLSplitter.hh

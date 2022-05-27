@@ -28,7 +28,7 @@ RunAction::RunAction() : G4UserRunAction()
 {
 
   fMessenger = new RunActionMessenger(this);
-  outFileName = "PuBeTest";
+  outFileName = "He3Full";
 }
 //
 //
