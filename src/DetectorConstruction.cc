@@ -67,7 +67,7 @@ void DetectorConstruction::ConstructMaterials()
   G4Material* poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
   fmats["poly"] = poly;
 
-  G4Material* he3 = new G4Material("Helium 3", 5.39e-4*g/cm3, 1, kStateGas, 293*kelvin, 4.*atmosphere); // From Walker Dissertai
+  G4Material* he3 = new G4Material("Helium 3", 5.39e-4*g/cm3, 1, kStateGas, 293.*kelvin, 4.*atmosphere); // From Walker Dissertai
   G4Element* helium = new G4Element("Helium", "He", 1);
   G4Isotope* helium3 = new G4Isotope("Helium3", 2, 3, 3.01602932197*g/mole); // from IAEA
   helium->AddIsotope(helium3, 100.*perCent);
@@ -102,7 +102,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double modx, mody, modz;
 
   // Tube and moderator dimensions:
-  tubeDiam = 2.54*cm;
+  tubeDiam = 2.74*cm;
   tubeHeight = 10*cm;
   modx = 6.54*cm; mody = 4.54*cm; modz = tubeHeight;
 
@@ -140,6 +140,7 @@ void DetectorConstruction::ConstructSDandField()
   nFilter->add("He3");
   nFilter->add("deuteron");
   nFilter->add("GenericIon");
+
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
   G4VPrimitiveScorer* energyDep = new G4PSEnergyDeposit("EnergyDep");
