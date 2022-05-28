@@ -23,7 +23,7 @@ int main(int argc, char** argv)
     ui = new G4UIExecutive(argc, argv);
   }
 
-  G4Random::setTheEngine(new CLHEP::RanecuEngine());
+  G4Random::setTheEngine(new CLHEP::MixMaxRng);
   G4MTRunManager* runManager = new G4MTRunManager;
 
   runManager->SetUserInitialization(new DetectorConstruction());
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
   G4ParticleHPManager::GetInstance()->SetUseOnlyPhotoEvaporation( false );
   G4ParticleHPManager::GetInstance()->SetNeglectDoppler( false );
   G4ParticleHPManager::GetInstance()->SetProduceFissionFragments( false );
-  G4ParticleHPManager::GetInstance()->SetUseWendtFissionModel( false );
+  //G4ParticleHPManager::GetInstance()->SetUseWendtFissionModel( false );
   G4ParticleHPManager::GetInstance()->SetUseNRESP71Model( false );
   runManager->SetUserInitialization(new ActionInitialization());
 

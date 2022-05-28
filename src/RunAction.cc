@@ -21,7 +21,6 @@
 #include "G4VPrimitiveScorer.hh"
 #include "G4StatAnalysis.hh"
 #include "G4RunManager.hh"
-#include "G4ConvergenceTester.hh"
 #include <iostream>
 #include <fstream>
 RunAction::RunAction() : G4UserRunAction()
@@ -57,7 +56,6 @@ void RunAction::EndOfRunAction(const G4Run* aRun)
     G4cout << "End of Global Run" << G4endl;
     myAnalysis->Save();
     myAnalysis->Close();
-    const Run* myRun = static_cast<const Run*>(aRun);
     myAnalysis->CheckConvergence();
   } else {
     myAnalysis->Save();
