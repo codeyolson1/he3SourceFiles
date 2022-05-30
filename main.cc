@@ -11,7 +11,7 @@
 #include "G4ParticleHPManager.hh"
 #include "ActionInitialization.hh"
 #include "DetectorConstruction.hh"
-#include "QGSP_BIC_AllHP.hh"
+#include "QGSP_BIC_HP.hh"
 #include "FTFP_BERT_HP.hh"
 #include "globals.hh"
 #include "PhysicsList.hh"
@@ -23,13 +23,13 @@ int main(int argc, char** argv)
     ui = new G4UIExecutive(argc, argv);
   }
 
-  G4Random::setTheEngine(new CLHEP::RanecuEngine());
+  G4Random::setTheEngine(new CLHEP::MixMaxRng);
   G4MTRunManager* runManager = new G4MTRunManager;
 
   runManager->SetUserInitialization(new DetectorConstruction());
 
   G4VModularPhysicsList* physicsList = new PhysicsList();
-  //G4VModularPhysicsList* physicsList = new QGSP_BIC_AllHP();
+  //G4VModularPhysicsList* physicsList = new QGSP_BIC_HP();
   physicsList->SetDefaultCutValue(50*CLHEP::um);
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
   G4ParticleHPManager::GetInstance()->SetUseOnlyPhotoEvaporation( false );
   G4ParticleHPManager::GetInstance()->SetNeglectDoppler( false );
   G4ParticleHPManager::GetInstance()->SetProduceFissionFragments( false );
-  G4ParticleHPManager::GetInstance()->SetUseWendtFissionModel( false );
+  //G4ParticleHPManager::GetInstance()->SetUseWendtFissionModel( false );
   G4ParticleHPManager::GetInstance()->SetUseNRESP71Model( false );
   runManager->SetUserInitialization(new ActionInitialization());
 
