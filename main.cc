@@ -28,8 +28,8 @@ int main(int argc, char** argv)
 
   runManager->SetUserInitialization(new DetectorConstruction());
 
-  //G4VModularPhysicsList* physicsList = new PhysicsList();
-  G4VModularPhysicsList* physicsList = new QGSP_BIC_HP();
+  G4VModularPhysicsList* physicsList = new PhysicsList();
+  //G4VModularPhysicsList* physicsList = new QGSP_BIC_HP();
   physicsList->SetDefaultCutValue(50*CLHEP::um);
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);

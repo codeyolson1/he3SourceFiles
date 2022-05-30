@@ -137,7 +137,6 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 void DetectorConstruction::ConstructSDandField()
 {
   G4SDParticleFilter* nFilter = new G4SDParticleFilter("NeutronFilter");
-  nFilter->add("neutron");
   nFilter->add("proton");
   nFilter->add("triton");
   nFilter->add("He3");
