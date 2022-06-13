@@ -68,7 +68,7 @@ PhysicsList::PhysicsList()
   //
   ////RegisterPhysics( new G4HadronPhysicsFTFP_BERT_HP(verb));
   //RegisterPhysics( new G4HadronPhysicsQGSP_BIC_HP(verb));
-  //RegisterPhysics( new G4HadronPhysicsQGSP_BIC_AllHP(verb));
+  RegisterPhysics( new G4HadronPhysicsQGSP_BIC_AllHP(verb));
   ////RegisterPhysics( new G4HadronPhysicsQGSP_BIC(verb));  
   ////RegisterPhysics( new G4HadronInelasticQBBC(verb));
   ////RegisterPhysics( new G4HadronPhysicsINCLXX(verb));
