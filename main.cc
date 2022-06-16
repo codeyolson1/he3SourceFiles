@@ -30,7 +30,7 @@ int main(int argc, char** argv)
 
   G4VModularPhysicsList* physicsList = new PhysicsList();
   //G4VModularPhysicsList* physicsList = new QGSP_BIC_HP();
-  physicsList->SetDefaultCutValue(50*CLHEP::um);
+  physicsList->SetDefaultCutValue(700*CLHEP::um);
   physicsList->SetVerboseLevel(1);
   runManager->SetUserInitialization(physicsList);
   runManager->SetVerboseLevel(0);

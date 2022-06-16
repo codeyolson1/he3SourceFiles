@@ -80,7 +80,7 @@ void Run::RecordEvent(const G4Event* anEvent)
     for (auto itr = eventMap->begin(); itr != eventMap->end(); itr++) {
       val += *itr->second;
     }
-    if (val > 0.) {
+    if (val > 0.1/MeV) {
       myAnalysis->FillEDep(val/MeV);
     }
   }
