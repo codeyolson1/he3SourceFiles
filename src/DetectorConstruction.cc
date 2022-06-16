@@ -141,7 +141,8 @@ void DetectorConstruction::ConstructSDandField()
   nFilter->add("triton");
   nFilter->add("He3");
   nFilter->add("deuteron");
-  nFilter->add("GenericIon");
+  nFilter->add("alpha");
+  
 
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
