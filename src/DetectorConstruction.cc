@@ -111,7 +111,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // Tube Construction
   G4Tubs* ssShellSolid = new G4Tubs("SS Shell", 0, 0.5*tubeDiam, 0.5*tubeHeight, 0, 360.*deg);
-  G4LogicalVolume* ssShellLogic = new G4LogicalVolume(ssShellSolid, fmats["aluminum"], "SS Shell");
+  G4LogicalVolume* ssShellLogic = new G4LogicalVolume(ssShellSolid, fmats["steel"], "SS Shell");
   new G4PVPlacement(0, G4ThreeVector(), ssShellLogic, "SS Shell", logicWorld, false, 0, checkOverlaps); 
   // helium3 fill gas:
   G4Tubs* he3GasSolid = new G4Tubs("He3 Gas", 0, 0.5*(tubeDiam - 2*mm), 0.5*(tubeHeight - 2*mm), 0, 360.*deg);
@@ -147,8 +147,8 @@ void DetectorConstruction::ConstructSDandField()
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
   G4VPrimitiveScorer* energyDep = new G4PSEnergyDeposit("EnergyDep");
-  energyDep->SetFilter(nFilter);
   he3Detector->RegisterPrimitive(energyDep);
+  energyDep->SetFilter(nFilter);
   SetSensitiveDetector("He3 Gas", he3Detector);
 
 }
