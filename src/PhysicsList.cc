@@ -23,7 +23,8 @@
 #include "G4HadronInelasticQBBC.hh"
 #include "G4HadronPhysicsINCLXX.hh"
 #include "G4HadronPhysicsShielding.hh"
-
+#include "G4HadronElasticPhysicsLEND.hh"
+#include "G4HadronPhysicsShieldingLEND.hh"
 #include "G4EmStandardPhysics.hh"
 #include "G4EmLivermorePhysics.hh"
 
@@ -60,7 +61,7 @@ PhysicsList::PhysicsList()
 {
   G4int verb = 1;  
   SetVerboseLevel(verb);
-  SetCutValue(0, "proton");
+  //SetCutValue(0, "proton");
   
   //add new units for cross sections
   // 
@@ -70,20 +71,21 @@ PhysicsList::PhysicsList()
   // Hadron Elastic scattering
   //
   //
-  RegisterPhysics( new G4HadronElasticPhysicsPHP(verb));
+  RegisterPhysics( new G4HadronElasticPhysicsLEND(verb, "ENDF/BVII.1"));
   //RegisterPhysics( new NeutronHPphysics("neutronHP"));
-  RegisterPhysics( new G4ThermalNeutrons(verb));
+ 
   // Hadron Inelastic physics
   //
   ////RegisterPhysics( new G4HadronPhysicsFTFP_BERT_HP(verb));
   //RegisterPhysics( new G4HadronPhysicsQGSP_BIC_HP(verb));
-  RegisterPhysics( new G4HadronPhysicsQGSP_BIC_AllHP(verb));
+  //RegisterPhysics( new G4HadronPhysicsQGSP_BIC_AllHP(verb));
   //RegisterPhysics( new G4HadronPhysicsQGSP_BERT_HP(verb));
   ////RegisterPhysics( new G4HadronPhysicsQGSP_BIC(verb));  
   ////RegisterPhysics( new G4HadronInelasticQBBC(verb));
-  ////RegisterPhysics( new G4HadronPhysicsINCLXX(verb));
-  ////RegisterPhysics( new G4HadronPhysicsShielding(verb));
-    
+  //RegisterPhysics( new G4HadronPhysicsINCLXX(verb));
+  RegisterPhysics( new G4HadronPhysicsShieldingLEND(verb));
+  //RegisterPhysics( new G4HadronPhysicsQGSP_BIC_AllHP(verb) );
+  RegisterPhysics( new G4ThermalNeutrons(verb));  
   // Electromagnetic physics:
   RegisterPhysics( new G4EmStandardPhysics_option4(verb));
   RegisterPhysics( new G4EmExtraPhysics(verb));
@@ -141,10 +143,10 @@ void PhysicsList::ConstructParticle()
 
 void PhysicsList::SetCuts()
 {
-   //SetCutValue(0.1*mm, "proton");
-   //SetCutValue(0.1*mm, "alpha");
-   //SetCutValue(0.1*mm, "triton");
-   //SetCutValue(0.1*mm, "deuteron");
+   SetCutValue(0.1*mm, "proton");
+   SetCutValue(0.1*mm, "alpha");
+   SetCutValue(0.1*mm, "triton");
+   SetCutValue(0.1*mm, "deuteron");
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
