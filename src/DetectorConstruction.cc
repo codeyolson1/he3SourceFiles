@@ -67,12 +67,28 @@ void DetectorConstruction::ConstructMaterials()
   G4Material* poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
   fmats["poly"] = poly;
 
+/*
   G4Material* he3 = new G4Material("Helium 3", 5.39e-4*g/cm3, 1, kStateGas, 293.*kelvin, 4.*atmosphere); // From Walker Dissertai
   G4Element* helium = new G4Element("Helium", "He", 1);
   G4Isotope* helium3 = new G4Isotope("Helium3", 2, 3, 3.01602932197*g/mole); // from IAEA
   helium->AddIsotope(helium3, 100.*perCent);
   he3->AddElement(helium, 1);
   fmats["he3"] = he3;
+*/
+  G4double atomicMass = 3.016*g/mole;
+  G4Isotope* he3 = new G4Isotope("He3", 2, 3, atomicMass);
+  G4Element* He3 = new G4Element("Helium3", "He3", 1);
+  He3->AddIsotope(he3, 100*perCent);
+  //G4double pressure = 4.053*bar;
+  G4double temperature = 293*kelvin;
+  G4double molar_constant = CLHEP::Avogadro*CLHEP::k_Boltzmann;  //from clhep
+  G4double Density = 5.39e-4*g/cm3;
+  G4double pressure = (temperature*molar_constant*Density)/(atomicMass);
+  G4Material* Helium3 = new G4Material("Helium3", Density, 1, kStateGas, temperature, pressure);
+  G4cout << "------ Density == " << Density << G4endl;
+  G4cout << pressure/atmosphere << G4endl;
+  Helium3->AddElement(He3, 100*perCent);
+  fmats["he3"] = Helium3;
 
   G4Material* steel = nist->FindOrBuildMaterial("G4_STAINLESS-STEEL");
   fmats["steel"] = steel;
@@ -142,13 +158,14 @@ void DetectorConstruction::ConstructSDandField()
   nFilter->add("He3");
   nFilter->add("deuteron");
   nFilter->add("alpha");
+ 
   
 
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
   G4VPrimitiveScorer* energyDep = new G4PSEnergyDeposit("EnergyDep");
   he3Detector->RegisterPrimitive(energyDep);
-  energyDep->SetFilter(nFilter);
+  //energyDep->SetFilter(nFilter);
   SetSensitiveDetector("He3 Gas", he3Detector);
 
 }
