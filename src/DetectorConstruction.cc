@@ -9,7 +9,7 @@
 #include "G4RunManager.hh"
 #include "G4NistManager.hh"
 #include "G4SDManager.hh"
-
+#include "G4CrossSectionDataStore.hh"
 #include "G4Box.hh"
 #include "G4Tubs.hh"
 #include "G4Cons.hh"
@@ -66,7 +66,54 @@ void DetectorConstruction::ConstructMaterials()
   fmats["air"] = air;
   G4Material* poly = nist->FindOrBuildMaterial("G4_POLYETHYLENE");
   fmats["poly"] = poly;
-
+// Material info from :
+// https://gitlab.cern.ch/clemenci/Geant4-srcs/-/blob/92686251452762ac5947193b5f02ba43b77f546b/examples/extended/hadronic/FissionFragment/src/FFDetectorConstruction.cc
+    G4double const B10Enrichment = 0.96;
+    G4double const B11Enrichment = 0.04;
+    G4Isotope* const iB10
+        = new G4Isotope("iB10",                         // name
+                        5,                              // ZZZ
+                        10,                             // AAA
+                        10.0129370 * (g / mole));       // molecular weight
+    G4Isotope* const iB11
+        = new G4Isotope("iB11",                         // name
+                        5,                              // ZZZ
+                        11,                             // AAA
+                        11.0093054 * (g / mole));       // molecular weight
+    // Now create the elements and add the isotopes
+    G4Element* const B10
+        = new G4Element("B10",                          // name
+                        "B10",                          // symbol
+                        1);                             // number of isotopes
+    B10->AddIsotope(iB10,                               // isotope
+                     1.0);                              // abundance
+    G4Element* const B11
+        = new G4Element("B11",                          // name
+                        "B11",                          // symbol
+                        1);                             // number of isotopes
+    B11->AddIsotope(iB11,                               // isotope
+                     1.0);                              // abundance
+    G4Element* const flouride = nist->FindOrBuildElement("F");
+    // Calculate the mass fractions
+    const G4double BF3MolecularWeight = B10->GetA() * B10Enrichment
+                                        + B11->GetA() * B11Enrichment
+                                        + flouride->GetA() * 3;
+    const G4double B10MassFraction = (B10->GetA() * B10Enrichment)
+                                     / BF3MolecularWeight;
+    const G4double B11MassFraction = (B11->GetA() * B11Enrichment)
+                                     / BF3MolecularWeight;
+    const G4double flourideMassFraction = (flouride->GetA() * 3)
+                                          / BF3MolecularWeight;
+    // create the material and add the elements
+    fmats["enrBF3"] = new G4Material("BF3_96E",                // name
+                              2.73 * (kg / m3),          // density
+                              3);                       // number of components
+    fmats["enrBF3"]->AddElement(B10,                           // element
+                         B10MassFraction);              // mass fraction
+    fmats["enrBF3"]->AddElement(B11,                           // element
+                         B11MassFraction);              // mass fraction
+    fmats["enrBF3"]->AddElement(flouride,                      // element
+                         flourideMassFraction);         // mass fraction
 /*
   G4Material* he3 = new G4Material("Helium 3", 5.39e-4*g/cm3, 1, kStateGas, 293.*kelvin, 4.*atmosphere); // From Walker Dissertai
   G4Element* helium = new G4Element("Helium", "He", 1);
@@ -75,7 +122,7 @@ void DetectorConstruction::ConstructMaterials()
   he3->AddElement(helium, 1);
   fmats["he3"] = he3;
 */
-  G4double atomicMass = 3.016*g/mole;
+  G4double atomicMass = 3.01602932197*g/mole;
   G4Isotope* he3 = new G4Isotope("He3", 2, 3, atomicMass);
   G4Element* He3 = new G4Element("Helium3", "He3", 1);
   He3->AddIsotope(he3, 100*perCent);
@@ -132,7 +179,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   // helium3 fill gas:
   G4Tubs* he3GasSolid = new G4Tubs("He3 Gas", 0, 0.5*(tubeDiam - 2*mm), 0.5*(tubeHeight - 2*mm), 0, 360.*deg);
   G4LogicalVolume* he3GasLogic = new G4LogicalVolume(he3GasSolid, fmats["he3"], "He3 Gas");
-  new G4PVPlacement(0, G4ThreeVector(), he3GasLogic, "He3 Tube", ssShellLogic, false, 0, checkOverlaps); 
+  new G4PVPlacement(0, G4ThreeVector(), he3GasLogic, "He3 Gas", ssShellLogic, false, 0, checkOverlaps); 
   //Moderator:
   // Dummies for subtraction solid:
   G4Box* moderatorDummy = new G4Box("He3 Moderator Dummy", 0.5*modx, 0.5*mody, 0.5*modz);
@@ -158,14 +205,13 @@ void DetectorConstruction::ConstructSDandField()
   nFilter->add("He3");
   nFilter->add("deuteron");
   nFilter->add("alpha");
- 
-  
+  nFilter->add("neutron");
 
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
   G4VPrimitiveScorer* energyDep = new G4PSEnergyDeposit("EnergyDep");
   he3Detector->RegisterPrimitive(energyDep);
-  //energyDep->SetFilter(nFilter);
+  energyDep->SetFilter(nFilter);
   SetSensitiveDetector("He3 Gas", he3Detector);
 
 }
