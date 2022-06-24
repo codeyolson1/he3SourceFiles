@@ -26,9 +26,10 @@ int main(int argc, char** argv)
   G4Random::setTheEngine(new CLHEP::MixMaxRng);
   G4MTRunManager* runManager = new G4MTRunManager;
 
-  runManager->SetUserInitialization(new DetectorConstruction());
+ 
 
   G4VModularPhysicsList* physicsList = new PhysicsList();
+  runManager->SetUserInitialization(new DetectorConstruction());
   //G4VModularPhysicsList* physicsList = new QGSP_BIC_HP();
   physicsList->SetDefaultCutValue(700*CLHEP::um);
   physicsList->SetVerboseLevel(1);
