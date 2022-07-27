@@ -127,13 +127,11 @@ void DetectorConstruction::ConstructMaterials()
   G4Element* He3 = new G4Element("Helium3", "He3", 1);
   He3->AddIsotope(he3, 100*perCent);
   //G4double pressure = 4.053*bar;
+  G4double pressure = 4.0*atmosphere;
   G4double temperature = 293*kelvin;
   G4double molar_constant = CLHEP::Avogadro*CLHEP::k_Boltzmann;  //from clhep
-  G4double Density = 5.39e-4*g/cm3;
-  G4double pressure = (temperature*molar_constant*Density)/(atomicMass);
-  G4Material* Helium3 = new G4Material("Helium3", Density, 1, kStateGas, temperature, pressure);
-  G4cout << "------ Density == " << Density << G4endl;
-  G4cout << pressure/atmosphere << G4endl;
+  G4double density = (atomicMass*pressure)/(temperature*molar_constant);
+  G4Material* Helium3 = new G4Material("Helium3", density, 1, kStateGas, temperature, pressure);
   Helium3->AddElement(He3, 100*perCent);
   fmats["he3"] = Helium3;
 
@@ -169,8 +167,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
   // Tube and moderator dimensions:
   tubeDiam = 2.74*cm;
-  tubeHeight = 10*cm;
-  modx = 6.54*cm; mody = 4.54*cm; modz = tubeHeight;
+  tubeHeight = 10.*cm;
+  modx = tubeDiam + 4.*cm; mody = tubeDiam + 2.*cm; modz = tubeHeight;
 
   // Tube Construction
   G4Tubs* ssShellSolid = new G4Tubs("SS Shell", 0, 0.5*tubeDiam, 0.5*tubeHeight, 0, 360.*deg);
@@ -205,7 +203,7 @@ void DetectorConstruction::ConstructSDandField()
   nFilter->add("He3");
   nFilter->add("deuteron");
   nFilter->add("alpha");
-  nFilter->add("neutron");
+  //nFilter->add("neutron");
 
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);
