@@ -158,7 +158,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   worldZ = 11.*cm;
   // Construction:
   G4Box* solidWorld = new G4Box("World", 0.5*worldX, 0.5*worldY,0.5*worldZ);
-  G4LogicalVolume* logicWorld = new G4LogicalVolume(solidWorld, fmats["galactic"], "World");
+  G4LogicalVolume* logicWorld = new G4LogicalVolume(solidWorld, fmats["air"], "World");
   G4VPhysicalVolume* physWorld = new G4PVPlacement(0, G4ThreeVector(), logicWorld, "World", 0, false, 0, checkOverlaps);
 
   G4double tubeDiam;
@@ -174,10 +174,18 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4Tubs* ssShellSolid = new G4Tubs("SS Shell", 0, 0.5*tubeDiam, 0.5*tubeHeight, 0, 360.*deg);
   G4LogicalVolume* ssShellLogic = new G4LogicalVolume(ssShellSolid, fmats["steel"], "SS Shell");
   new G4PVPlacement(0, G4ThreeVector(), ssShellLogic, "SS Shell", logicWorld, false, 0, checkOverlaps); 
+  // Visual Stuff for shells
+  G4VisAttributes* shellAttr = new G4VisAttributes(G4Colour(192., 192., 192.)); // silver
+  shellAttr->SetForceWireframe(true);
+  ssShellLogic->SetVisAttributes(shellAttr);
   // helium3 fill gas:
-  G4Tubs* he3GasSolid = new G4Tubs("He3 Gas", 0, 0.5*(tubeDiam - 2*mm), 0.5*(tubeHeight - 2*mm), 0, 360.*deg);
+  G4Tubs* he3GasSolid = new G4Tubs("He3 Gas", 0, 0.5*(tubeDiam - 2.*mm), 0.5*(tubeHeight), 0, 360.*deg);
   G4LogicalVolume* he3GasLogic = new G4LogicalVolume(he3GasSolid, fmats["he3"], "He3 Gas");
   new G4PVPlacement(0, G4ThreeVector(), he3GasLogic, "He3 Gas", ssShellLogic, false, 0, checkOverlaps); 
+  // Visual Stuff for gas
+  G4VisAttributes* gasAttr = new G4VisAttributes(G4Colour(255., 0., 0.)); // red
+  gasAttr->SetForceSolid(true);
+  he3GasLogic->SetVisAttributes(gasAttr);
   //Moderator:
   // Dummies for subtraction solid:
   G4Box* moderatorDummy = new G4Box("He3 Moderator Dummy", 0.5*modx, 0.5*mody, 0.5*modz);
@@ -186,12 +194,21 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4VSolid* he3ModeratorSolid = new G4SubtractionSolid("He3 Moderator", moderatorDummy, moderatorVoidDummy, 0, G4ThreeVector());
   G4LogicalVolume* he3ModeratorLogic = new G4LogicalVolume(he3ModeratorSolid, fmats["poly"], "He3 Moderator");
   new G4PVPlacement(0, G4ThreeVector(), he3ModeratorLogic, "He3 Moderator", logicWorld, false, 0, checkOverlaps);
+  // Visual Stuff for moderator
+  G4VisAttributes* moderatorAttr = new G4VisAttributes(G4Colour()); // white
+  moderatorAttr->SetForceSolid(true);
+  he3ModeratorLogic->SetVisAttributes(moderatorAttr);
 
-  G4Box* airSourceDummy = new G4Box("AirSourceDummy", 5.27*cm, 4.27*cm, 5.*cm);
-  G4VSolid* airSource = new G4SubtractionSolid("AirSource", airSourceDummy, moderatorDummy, 0, G4ThreeVector(0, 0, 0));
+  // Air Source
+  G4Box* airSourceDummy = new G4Box("AirSourceDummy", 0.5*(modx + 4.*cm), 0.5*(mody + 4.*cm), 0.5*(modz));
+  G4Box* moderatorDummy1 = new G4Box("ModeratorDummy1", 0.5*modx, 0.5*mody, 0.5*(modz + 0.5*cm));
+  G4VSolid* airSource = new G4SubtractionSolid("AirSource", airSourceDummy, moderatorDummy1, 0, G4ThreeVector(0, 0, 0));
   G4LogicalVolume* airLogic = new G4LogicalVolume(airSource, fmats["air"], "AirSource");
   new G4PVPlacement(0, G4ThreeVector(0, 0, 0), airLogic, "AirSource", logicWorld, false, 0, checkOverlaps);
- 
+  // visual Stuff for Air source
+  G4VisAttributes* airAttr = new G4VisAttributes(G4Colour(0., 255., 0.)); // green
+  airAttr->SetForceSolid(true);
+  airLogic->SetVisAttributes(airAttr);
   return physWorld;
 }
 
@@ -200,10 +217,10 @@ void DetectorConstruction::ConstructSDandField()
   G4SDParticleFilter* nFilter = new G4SDParticleFilter("NeutronFilter");
   nFilter->add("proton");
   nFilter->add("triton");
-  nFilter->add("He3");
+  nFilter->addIon(2, 3);
   nFilter->add("deuteron");
   nFilter->add("alpha");
-  //nFilter->add("neutron");
+  nFilter->add("neutron");
 
   G4MultiFunctionalDetector* he3Detector = new G4MultiFunctionalDetector("Helium-3");
   G4SDManager::GetSDMpointer()->AddNewDetector(he3Detector);

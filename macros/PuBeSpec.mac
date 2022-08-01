@@ -2,15 +2,7 @@
 /gps/ene/type User
 /gps/hist/type energy
 /gps/hist/point 1.E-11 0.
-/gps/hist/point 1.0E-07 1.09E-14
-/gps/hist/point 4.41E-07 8.11E-14
-/gps/hist/point 8.76E-07 1.91E-13
-/gps/hist/point 1.86E-06 5.93E-13
-/gps/hist/point 5.04E-06 3.03E-12
-/gps/hist/point 1.07E-05 8.18E-12
-/gps/hist/point 3.73E-05 6.66E-11
-/gps/hist/point 1.01E-04 2.72E-10
-/gps/hist/point 2.14E-04 7.31E-10
+# Remove energies with prob below 1e-9
 /gps/hist/point 4.54E-04 2.26E-09
 /gps/hist/point 1.58E-03 1.95E-08
 /gps/hist/point 3.35E-03 7.41E-08

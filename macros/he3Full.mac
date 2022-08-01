@@ -5,8 +5,8 @@
 /gps/pos/confine AirSource
 /gps/pos/halfx 5.27 cm
 /gps/pos/halfy 4.27 cm
-/gps/pos/halfz 5 cm
+/gps/pos/halfz 5.2 cm
 /gps/pos/centre 0 0 0 cm
 /gps/ang/type iso
-/control/execute test.mac
+/control/execute bugle96.mac
 /run/beamOn 10000000

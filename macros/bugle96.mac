@@ -2,13 +2,13 @@
 /gps/ene/type User
 /gps/hist/type energy
 /gps/hist/point 	1.00E-11	0
-/gps/hist/point 	1.00E-07	0
-/gps/hist/point 	4.14E-07	2.83E-10
-/gps/hist/point 	8.76E-07	2.79E-10
-/gps/hist/point 	1.86E-06	1.34E-09
-/gps/hist/point 	5.04E-06	3.62E-09
-/gps/hist/point 	1.07E-05	5.04E-09
-/gps/hist/point 	3.73E-05	3.75E-08
+#/gps/hist/point 	1.00E-07	0
+#/gps/hist/point 	4.14E-07	2.83E-10
+#/gps/hist/point 	8.76E-07	2.79E-10
+#/gps/hist/point 	1.86E-06	1.34E-09
+#/gps/hist/point 	5.04E-06	3.62E-09
+#/gps/hist/point 	1.07E-05	5.04E-09
+#/gps/hist/point 	3.73E-05	3.75E-08
 /gps/hist/point 	1.01E-04	0.000000431
 /gps/hist/point 	2.14E-04	0.000000604
 /gps/hist/point 	4.54E-04	0.00000178
