@@ -164,14 +164,13 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double tubeDiam;
   G4double tubeHeight;
   G4double modx, mody, modz;
-
   // Tube and moderator dimensions:
   tubeDiam = 2.74*cm;
   tubeHeight = 10.*cm;
   modx = tubeDiam + 4.*cm; mody = tubeDiam + 2.*cm; modz = tubeHeight;
 
   // Tube Construction
-  G4Tubs* ssShellSolid = new G4Tubs("SS Shell", 0, 0.5*tubeDiam, 0.5*tubeHeight, 0, 360.*deg);
+  G4Tubs* ssShellSolid = new G4Tubs("SS Shell", 0, 0.5*tubeDiam, 0.5*(tubeHeight + 2.*mm), 0, 360.*deg);
   G4LogicalVolume* ssShellLogic = new G4LogicalVolume(ssShellSolid, fmats["steel"], "SS Shell");
   new G4PVPlacement(0, G4ThreeVector(), ssShellLogic, "SS Shell", logicWorld, false, 0, checkOverlaps); 
   // Visual Stuff for shells
