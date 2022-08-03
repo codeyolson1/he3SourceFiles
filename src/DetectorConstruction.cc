@@ -129,8 +129,9 @@ void DetectorConstruction::ConstructMaterials()
   //G4double pressure = 4.053*bar;
   G4double pressure = 4.0*atmosphere;
   G4double temperature = 293*kelvin;
-  G4double molar_constant = CLHEP::Avogadro*CLHEP::k_Boltzmann;  //from clhep
-  G4double density = (atomicMass*pressure)/(temperature*molar_constant);
+  //G4double molar_constant = CLHEP::Avogadro*CLHEP::k_Boltzmann;  //from clhep
+  G4double density = 5.39E-4*(g/cm3);
+  G4cout << "He3 density: " << density/(g/cm3) << G4endl;
   G4Material* Helium3 = new G4Material("Helium3", density, 1, kStateGas, temperature, pressure);
   Helium3->AddElement(He3, 100*perCent);
   fmats["he3"] = Helium3;
@@ -165,22 +166,23 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   G4double tubeHeight;
   G4double modx, mody, modz;
   // Tube and moderator dimensions:
-  tubeDiam = 2.74*cm;
+  tubeDiam = 2.54*cm; // With shell
   tubeHeight = 10.*cm;
   modx = tubeDiam + 4.*cm; mody = tubeDiam + 2.*cm; modz = tubeHeight;
 
   // Tube Construction
-  G4Tubs* ssShellSolid = new G4Tubs("SS Shell", 0, 0.5*tubeDiam, 0.5*(tubeHeight + 2.*mm), 0, 360.*deg);
+  G4Tubs* ssShellSolid = new G4Tubs("SS Shell", 0, 0.5*(tubeDiam + 0.2*cm), 0.5*(tubeHeight + 0.2*cm), 0, 360.*deg);
   G4LogicalVolume* ssShellLogic = new G4LogicalVolume(ssShellSolid, fmats["steel"], "SS Shell");
-  new G4PVPlacement(0, G4ThreeVector(), ssShellLogic, "SS Shell", logicWorld, false, 0, checkOverlaps); 
+  //new G4PVPlacement(0, G4ThreeVector(), ssShellLogic, "SS Shell", logicWorld, false, 0, checkOverlaps); 
   // Visual Stuff for shells
   G4VisAttributes* shellAttr = new G4VisAttributes(G4Colour(192., 192., 192.)); // silver
   shellAttr->SetForceWireframe(true);
   ssShellLogic->SetVisAttributes(shellAttr);
   // helium3 fill gas:
-  G4Tubs* he3GasSolid = new G4Tubs("He3 Gas", 0, 0.5*(tubeDiam - 2.*mm), 0.5*(tubeHeight), 0, 360.*deg);
+  G4Tubs* he3GasSolid = new G4Tubs("He3 Gas", 0, 0.5*(tubeDiam), 0.5*(tubeHeight), 0, 360.*deg);
   G4LogicalVolume* he3GasLogic = new G4LogicalVolume(he3GasSolid, fmats["he3"], "He3 Gas");
-  new G4PVPlacement(0, G4ThreeVector(), he3GasLogic, "He3 Gas", ssShellLogic, false, 0, checkOverlaps); 
+  new G4PVPlacement(0, G4ThreeVector(0, 0, 0), he3GasLogic, "He3 Gas", logicWorld, false, 0, checkOverlaps); 
+  G4cout << "Gas volume: " << he3GasSolid->GetCubicVolume()/cm3 << G4endl;
   // Visual Stuff for gas
   G4VisAttributes* gasAttr = new G4VisAttributes(G4Colour(255., 0., 0.)); // red
   gasAttr->SetForceSolid(true);
@@ -188,22 +190,24 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
   //Moderator:
   // Dummies for subtraction solid:
   G4Box* moderatorDummy = new G4Box("He3 Moderator Dummy", 0.5*modx, 0.5*mody, 0.5*modz);
-  G4Tubs* moderatorVoidDummy = new G4Tubs("He3 Void Dummy", 0, 0.5*tubeDiam, 0.5*(tubeHeight + 1*cm), 0, 360.*deg);
+  G4Tubs* moderatorVoidDummy = new G4Tubs("He3 Void Dummy", 0, 0.5*(tubeDiam), 0.5*(tubeHeight + 1*cm), 0, 360.*deg);
   // Final solid:
   G4VSolid* he3ModeratorSolid = new G4SubtractionSolid("He3 Moderator", moderatorDummy, moderatorVoidDummy, 0, G4ThreeVector());
   G4LogicalVolume* he3ModeratorLogic = new G4LogicalVolume(he3ModeratorSolid, fmats["poly"], "He3 Moderator");
   new G4PVPlacement(0, G4ThreeVector(), he3ModeratorLogic, "He3 Moderator", logicWorld, false, 0, checkOverlaps);
+  G4cout << "Moderator volume: " << he3ModeratorSolid->GetCubicVolume()/cm3 << G4endl;
   // Visual Stuff for moderator
   G4VisAttributes* moderatorAttr = new G4VisAttributes(G4Colour()); // white
   moderatorAttr->SetForceSolid(true);
   he3ModeratorLogic->SetVisAttributes(moderatorAttr);
-
+  
   // Air Source
   G4Box* airSourceDummy = new G4Box("AirSourceDummy", 0.5*(modx + 4.*cm), 0.5*(mody + 4.*cm), 0.5*(modz));
   G4Box* moderatorDummy1 = new G4Box("ModeratorDummy1", 0.5*modx, 0.5*mody, 0.5*(modz + 0.5*cm));
   G4VSolid* airSource = new G4SubtractionSolid("AirSource", airSourceDummy, moderatorDummy1, 0, G4ThreeVector(0, 0, 0));
   G4LogicalVolume* airLogic = new G4LogicalVolume(airSource, fmats["air"], "AirSource");
   new G4PVPlacement(0, G4ThreeVector(0, 0, 0), airLogic, "AirSource", logicWorld, false, 0, checkOverlaps);
+  G4cout << "Air Source volume: " << airSource->GetCubicVolume()/cm3 << G4endl;
   // visual Stuff for Air source
   G4VisAttributes* airAttr = new G4VisAttributes(G4Colour(0., 255., 0.)); // green
   airAttr->SetForceSolid(true);
