@@ -30,8 +30,8 @@ cd $SCRATCHDIR/build
 ./he3 run.mac
 
 # Copy over the output of my file to my home directory
-cp He3Response.root $CURRENTDIR/outputs/outputHe3bay-$SLURM_JOB_ID
-cp He3Response.root-conv.txt $CURRENTDIR/outputs/outputHe3bay-$SLURM_JOB_ID
+cp He3Response.root $CURRENTDIR/outputs/outputHe3global-$SLURM_JOB_ID
+cp He3Response.root-conv.txt $CURRENTDIR/outputs/outputHe3global-$SLURM_JOB_ID
 
 # Copy the stdouput to the output folder
 cd $CURRENTDIR
